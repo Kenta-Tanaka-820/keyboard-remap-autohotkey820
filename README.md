@@ -61,9 +61,9 @@ ForceIME_Off() {
 }
 ```
 
--GetIMEStatus() で現在IMEがONか判定
--ONのときにだけIME切り替え信号を送る
--環境依存が少なく、日本語IMEでも安定動作
+- GetIMEStatus() で現在IMEがONか判定
+- ONのときにだけIME切り替え信号を送る
+- 環境依存が少なく、日本語IMEでも安定動作
 
 ```Chrome起動処理
 pid := ProcessExist("chrome.exe")
