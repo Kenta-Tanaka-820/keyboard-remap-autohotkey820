@@ -41,7 +41,7 @@ https:// → ｈｔｔｐｓ：／／
 
 ```autohotkey
 urls := [
-    "https://lms.is.saga-u.ac.jp/",
+    "https://example0.com/",
     "https://example1.com/",
     "https://example2.com/",
     "https://example3.com/"
