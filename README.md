@@ -67,11 +67,14 @@ ForceIME_Off() {
 
 ```Chrome起動処理
 pid := ProcessExist("chrome.exe")
-if pid {
-    WinActivate("ahk_pid " pid)
-} else {
-    Run('"C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 2"')
-}
+    if pid {
+        WinActivate("ahk_pid " pid)
+        WinWaitActive("ahk_pid " pid, , 1)
+    } else {
+        Run('"C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 2"')
+        WinWaitActive("ahk_exe chrome.exe", , 3)
+    }
+
 ```
 
 - Chromeが既に起動している場合 → 再起動せず前面に表示
