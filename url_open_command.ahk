@@ -7,9 +7,10 @@ SendMode("Input")
     pid := ProcessExist("chrome.exe")
     if pid {
         WinActivate("ahk_pid " pid)
+        WinWaitActive("ahk_pid " pid, , 1)
     } else {
         Run('"C:\Program Files\Google\Chrome\Application\chrome.exe" --profile-directory="Profile 2"')
-        Sleep(900)
+        WinWaitActive("ahk_exe chrome.exe", , 3)
     }
 
     Sleep(200)
@@ -25,9 +26,12 @@ SendMode("Input")
         Send("^t")
         Sleep(200)
         ForceIME_Off()
-        Send(url "{Enter}")
+        SendText(url)
+        Sleep(50)
+        Send("{Enter}")
         Sleep(300)
     }
+
 }
 
 
@@ -47,3 +51,4 @@ GetIMEStatus() {
     hwnd := WinGetID("A")
     return DllCall("SendMessage", "Ptr", hwnd, "UInt", 0x283, "Int", -1, "Int", 0)
 }
+
